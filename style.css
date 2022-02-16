@@ -28,9 +28,19 @@ nav ul{
     display: inline-block;
     list-style-type: none;
 }
+
 nav ul li{
     display: inline-block;
     margin-right: 20px;
+
+}
+.main{
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+input{
 
 }
 a{
@@ -279,6 +289,7 @@ ul{
         margin-bottom: 10px;
         
     }
+    
     nav ul li a{
         color: #fff;
     }
