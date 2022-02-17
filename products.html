@@ -22,10 +22,10 @@
                     <li><a href="products.html">Products</a></li>
                     <li><a href="">About us</a></li>
                     <li><a href="">Contact us</a></li>
-                    <li><a href="">Acount</a></li>
+                    <li><a href="account.html">Acount</a></li>
                 </ul>
-                <input type="text" name="box" placeholder="search">
-                <a href="#"><i class="fa fa-search"></i></a>
+                <input type="text" name="box" placeholder="search" id="querytext">
+                <a href="#" id="btn-seach"><i class="fa fa-search"></i></a>
             </nav>
         </div>
     </div>
@@ -37,6 +37,7 @@
     <script>
         // api url
         const api_url = "https://fakestoreapi.com/products";
+        var data=[];
 
         // Defining async function
         async function getapi(url) {
@@ -45,8 +46,9 @@
             const response = await fetch(url);
             
             // Storing data in form of JSON
-            var data = await response.json();
-            console.log(data);
+             data = await response.json();
+          
+            //console.log(data);
             if (response) {
                 hideloader();
             }
@@ -73,6 +75,14 @@
             // Setting innerHTML as tab variable
             document.getElementById("products").innerHTML = tab;
         }
+        document.getElementById("btn-seach").addEventListener("click",function(e){
+         const query=document.getElementById("querytext").value;
+         const searchedData=data.filter(function(product){
+             return product.title.toLowerCase().includes(query.toLowerCase());
+         });
+       
+         show(searchedData);
+        });
     </script>
 
     <!-- ----------------------footer--------------------->
